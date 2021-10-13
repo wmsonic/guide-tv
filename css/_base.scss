@@ -1,0 +1,27 @@
+//On définit ici le style par défaut des balises présentes sur le site, peu importe où elles se trouvent (le style pourrait être écrasé par la suite).
+// N'implique habituellement que des sélecteurs de balise et des sélecteurs d'attribut. Ne pas utiliser de classe ni de !important.
+@import "reset";
+
+html{
+    font-family: 'Roboto', sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+.hero-header{
+    font-size: calc(.5em + 1.5vw);
+}
+
+.abonnements{
+    font-size: calc(.5em + 1.5vw);
+}
+
+.nav-wrapper{
+    font-size: calc(.5em + 1.5vw);
+}

@@ -1,0 +1,584 @@
+// "Layouts change. Components are fluid".
+// Parties réutilisables du design. C'est la chair du site. (sections dans une sidebar, navigation, liste de produits, produits, callout)
+// Chaque module doit être pensé pour exister indépendamment pour conserver la flexibilité de la page. 
+// Les modules pourraient normalement être déplacés dans le site ou vers un autre site sans se casser. 
+// On doit donc résister à la tentation d'utiliser des sélecteurs d'élément s'ils ne sont pas sémantiques (span, div) en ajoutant plutôt des classes communes.
+// Utiliser les sélecteurs enfant (>) le plus possible, mais en respectant la loi d'Inception.
+
+.hero{
+    position:relative;
+    background-attachment: scroll;
+    background-blend-mode: overlay;
+    bottom: 0;
+    font-family: 'Roboto', sans-serif;
+    padding: 1em;
+    background-image: url(../img/hero-assets/hero-480.jpg);
+    height:200px;
+    background-size: cover;
+    text-align: center;
+    
+    .hero-title{
+        font-size: 2.5rem;
+        text-shadow: 1px 2px 7px rgba(255, 255, 255, 0.78);
+        letter-spacing: .2em;
+        font-weight: 700;
+    }
+    
+    .slogan{
+        padding-bottom: 0.5rem;
+        font-size: 1rem;
+        text-shadow: 1px 2px 7px rgba(255, 255, 255, 0.78);
+        font-weight: 500;
+    }
+
+    .logo{
+        width: 20%;
+        margin: 0 auto;
+    }
+    
+    @include mq(x-small){
+        height:550px;
+        padding: 1em;
+        background-image: url(../img/hero-assets/hero-992.jpg);
+        
+        .hero-header{
+            text-align: center;
+            position: absolute;
+            left:0;
+            right:0;
+            top:50%;
+            transform: translateY(-50%);
+        }
+    }
+    
+    @include mq(small){
+        background-image: url(../img/hero-assets/hero-1239.jpg);
+        .logo{
+            width: 15%;
+        }
+    }
+    
+    @include mq(medium){
+        background-image: url(../img/hero-assets/hero-1984.jpg);
+        height:100vh;
+    }
+}
+    
+.nav-wrapper{
+    .nav-mask{
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: .5s ease-in;
+        background-color: $myDarkGrey;
+        height: 200px;
+        width: 100%;
+        z-index: 98;
+    }
+    .burger{
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        z-index: 99;
+        font-size : 2em;
+        color: $almostWhite;
+        text-decoration: none;
+        filter: opacity(.7);
+        text-shadow: 1px 2px 7px rgba(0, 0, 0, 0.78);
+    }
+    .nav{
+        .media-sociaux-nav{
+                font-size: 1.5em;
+            .media-social:not(:first-child){
+                margin-left: 1.5rem;
+            }
+        }
+        .main-nav{
+            width: 100%;
+            font-size: 1.2em;
+            margin-top: 2em;
+            text-align: center;
+        }
+        a{
+            color: $mainOrange;
+            text-decoration: none;
+        }
+        li{
+            padding-top: .7rem;
+            &:hover{
+                color: $almostWhite;
+            }
+        }
+    }
+    
+    @include mq(x-small){
+        .nav-mask{
+            height: 550px;
+        }
+    }
+    
+    @include mq(small){
+        //devien comme normal mais pas sticky
+        .burger{
+            display: none;
+        }
+        height: auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 550px;
+        .nav-mask{
+            background-color: transparent;
+        }
+        .nav{
+            width: 100%;
+            margin: 0;
+            padding: 0 0 0 .5em;
+            background-color: $myGrey;
+            .main-nav{
+                margin-top: 0;
+                position: relative;
+                left: 0;
+                right: 0;
+            }
+            li{
+                position: relative;
+                float: left;
+                text-align: center;
+                border-right: 1px solid white;
+                transition: .3s ease-in;
+                padding: 1em .5em;
+                box-sizing: border-box;
+            }
+        }
+        .media-sociaux-nav{
+            .media-social{
+                display: block;
+            }
+            li{
+            background-color: $myGrey;
+            padding: .5em .2em;
+            background-color: transparent;
+                border: none;
+            }
+            li::after{
+                display: none;
+            }
+        }
+         
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        li::after{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 5px;
+                bottom: 0;
+                left: 0;
+                background-color: $almostWhite;
+                visibility: hidden;
+                transform: scaleY(0);
+                transition: all .3s ease-in-out 0s;
+                -webkit-transform: scaleY(0);
+                -webkit-transition: all .3s ease-in-out 0s;
+        }
+        a:hover > li::after{
+                visibility: visible;
+                transform: scaleY(1);
+                -webkit-transform: scaleY(1);
+        }
+    }
+    
+    @include mq(medium){
+        //devien sticky
+        position: absolute;
+        left: 0;
+        right: 0;
+        top:100vh;
+        z-index: 999999999999999999999;
+        .nav-mask{
+            height: auto;
+        }
+        li::after{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 5px;
+                bottom: 0;
+                left: 0;
+                background-color: $almostWhite;
+                visibility: hidden;
+                transform: scaleY(0);
+                transform-origin: bottom;
+                transition: all .3s ease-in-out 0s;
+        }
+        a:hover > li::after{
+                visibility: visible;
+                transform: scaleY(1);
+        }
+    }
+    
+}
+
+.profil{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: $almostWhite;
+    background-color: rgba(0, 0, 0, 0.84);
+    height: 70px;
+    transition: all .2s ease-in;
+    
+    .img-profil{
+        transition: all .2s ease-in;
+        display: inline-block;
+        width: 70px;
+        border-radius: 50%;
+        border: .2em solid $almostWhite;
+        margin-right: .5em;
+        vertical-align: bottom;
+    }
+    .info-profil{
+        display: inline-block;
+        vertical-align: bottom;
+        text-align: left;
+        
+        .profil-nom{
+            font-size: 1.6rem;
+            margin-bottom: .5em;
+        }
+        .profil-abonnes-total{
+            font-size: .9rem;
+            margin-bottom: .3em;
+        }
+        
+    }
+    
+    @include mq("x-small"){
+        height: 170px;
+        .img-profil{
+            display: inline-block;
+            width: 170px;
+            border-radius: 50%;
+            border: .2em solid $almostWhite;
+        }
+    }
+}
+
+.abonnements{
+    
+    .titre-abonnements{
+        font-size: 3em;
+    }
+    
+    position: relative;
+    
+    .searchBar{
+        margin-top: 4em;
+        height: 2em;
+        text-align: center;
+        
+    }
+    
+    .searchInput{
+        box-sizing: border-box;
+        padding: 2px;
+        height: 100%;
+        border: none;
+        width: 25%;
+        transition: .4s ease-out;
+        
+        &:focus{
+            width: 60%;
+        }
+    }
+    
+    .searchSubmit{
+        vertical-align: top;
+        background-color: $mainOrange;
+        height: 100%;
+        padding: .5em .5em;
+        color: $myDarkGrey;
+        text-decoration: none;
+        text-shadow: 2px 1px 5px #000000;
+        transition: .3s ease-in-out;
+        border: none;
+        &:hover{
+            color: $almostWhite;
+        }
+    }
+    
+    .series-item{
+        position: relative;
+    }
+    
+    .serie{
+        background-color: $myLightGrey;
+        height: 10.5em;
+        margin-top: 1em;
+        border-radius: $borderRadiusSerie;
+        padding: 0;
+        position: relative;
+        &::before{
+            font-family: FontAwesome;
+            content:"\f006";
+            font-size: 1.2rem;
+            position: absolute;
+            top:.2rem;
+            right:-9px;
+            padding:.5em .7em;
+            background-color:$mainOrange;
+            z-index:3;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+        
+        &::after{
+            content:"";
+            font-size: 1.2rem;
+            background-color:darken($mainOrange,10%);
+            transform-origin: left top;
+            top:2.5rem;
+            right:-9px;
+            width:80px;
+            height:2em;
+            position: absolute;
+            transform:skewX(-45deg);
+            z-index: -1;
+        }
+    }
+    
+    
+    .droite{
+        float: left;
+        padding-left: .2em;
+        height: 100%;
+        max-width: 60%;
+    }
+    .gauche{
+        float: left;
+        min-width: 30%;
+        max-width: 40%;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+        border-radius: $borderRadiusSerie 0 0 $borderRadiusSerie;
+        .serie-affiche{
+            height: 100%;
+        }
+    }
+
+    .btn{
+        border: 1px solid $almostWhite;
+        border-radius: 0;
+        position: absolute;
+        padding: .2rem .4rem;
+        bottom: 10px;
+        right: 8px;
+        color: black;
+        transition: .2s ease-out;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        background-color: $almostWhite;
+        z-index: 2;
+        &:hover{
+             filter: brightness(50%);
+        }
+    }
+    
+    .serie-titre{
+        font-size: 1.7em;
+        color: $almostWhite;
+        padding-right: 1em;
+    }
+    
+    .serie-episodes{
+        color: $mainOrange;
+        font-size: .9em;
+    }
+    
+    .serie-episodes{
+        position: absolute;
+        top: 5em;
+    }
+    
+    @include mq(small){
+        .serie-affiche{
+            background-size: contain;
+        }
+        .serie{
+            height: 10em;
+        }
+        .serie-titre{
+            font-size: 1.5em;
+        }
+        .serie-episodes{
+            font-size: .8em;
+        }
+    }
+    @include mq(medium){
+        .gauche{
+            position: absolute;
+            right: 0;
+            left: 0;
+            width: 100%;
+            z-index: 0;
+            min-width: none;
+            max-width: none;
+        }
+        
+        .droite{
+            text-align: center;
+            z-index: 1;
+            position: absolute;
+            padding-top: 20%;
+            right: 0;
+            left: 0;
+            width: 100%;
+            max-width: none;
+            overflow: hidden;
+        }
+        .gauche{
+            height: none;
+            width: 100%;
+            .serie-affiche{
+                height: none;
+                width: 100%;
+                transition: filter .2s ease-in;
+                height: auto;
+            }
+            img{
+                position: absolute;
+                left:0;
+                right: 0;
+                top: -25%;
+            }
+        }
+        .serie-info{
+            position: absolute;
+            left: 0;
+            right: 0;
+            padding: 2em 0;
+        }
+        .serie-episodes{
+            position: relative;
+            transform: translateY(1000%);
+            transition: .6s ease-in-out;
+        }
+        .serie:hover > .gauche > .serie-affiche{
+            filter: blur(5px) grayscale(100%) brightness(50%);
+        }
+        .serie:hover >.droite > .serie-info > .serie-episodes{
+            transform: translateY(-5em);
+        }
+        .serie{
+            margin: 5px 0;
+            height: 12em;
+        }
+        .serie-titre{
+            font-size: 1.2em;
+            text-shadow: 1px 2px 7px rgba(0, 0, 0, 0.78);
+            padding: 0;
+        }
+        .serie-episodes{
+            font-size: .6em;
+            margin-top: 1em;
+        }
+        h2{
+            font-weight: 700;
+        }
+        h3{
+            color: $mainOrange;
+            font-weight: 500;
+        }
+    }
+}
+
+.en-vedette{
+    h2{
+        font-size: 3em;
+        margin-bottom: 1.5em;
+        margin-top: 3em;
+    }
+    
+    .serie-en-vedette{
+        background-color: $myLightGrey;
+        padding: 0 0 2em 0;
+        margin-bottom: 1.7em;
+        color: $almostWhite;
+        overflow: hidden;
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .serie-titre{
+        font-size: 2.5em;
+        margin: .5em 0 1em 1rem;
+    }
+    .description{
+        font-size: 1.2em;
+        margin: 0 0 1em 1rem; 
+    }
+    .serie-date{
+        margin: 0 0 0 1rem;
+    }
+    .image-serie-vedette{
+        width: 100%;
+        border-bottom: .8em solid $almostWhite;
+    }
+    
+    @include mq(medium){
+        .serie-en-vedette{
+            box-shadow: none;
+        }
+        .image-serie-vedette{
+            width: 100%;
+            border-bottom: .8em solid $almostWhite;
+        }
+    }
+    
+    .series-en-vedette{
+        position: relative;
+    }
+    
+    .slick-prev, .slick-next{
+        position: absolute;
+        top:40%;
+        z-index: 50;
+    }
+    
+    .slick-next{
+        right: 0;
+    }
+    .slick-dots{
+        text-align: center;
+        
+        li{
+            font-family: FontAwesome;
+            content:"\f10c";
+            display: inline-block;
+        }
+    }
+}
+
+.copyright{
+    font-size: .8rem;
+    text-align: center;
+}
+
+@keyframes animSwooshPop{
+    0% {transform: translateY()}
+    15% {transform: scaleY(.8)}
+    30% {transform: scaleY(1.2)}
+    40% {transform: scaleY(.6)}
+    50% {transform: scaleY(1.8)}
+    70% {transform: scaleY(.2)}
+    75% {transform: scale(2)}
+    80% {transform: translateY(-100vh)}
+    100% {transform: translateY(-100vh)}
+}
+
+.swooshPop{
+    overflow: hidden;
+    animation: animSwooshPop 4s ease-in 2 alternate;
+}

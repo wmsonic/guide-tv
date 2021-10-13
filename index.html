@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Guide TV</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+        <script src="js/polyfills/respond.min.js"></script>
+        <script src="js/polyfills/calc.min.js"></script>
+        <script src="js/polyfills/selectivizr.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+   <div class="nav-wrapper">
+        <a href="#" class="burger fa-navicon fa"></a>
+        <div class="nav-mask is-collapsed">
+            <nav class="nav container">
+                <ul class="main-nav row">
+                    <a href="#Accueil" class="link"><li class="link-accueil">Accueil</li></a>
+                    <a href="#Abonnements" class="link"><li class="link-abonnements">Abonnements</li></a>
+                    <a href="#En-vedette" class="link"><li class="link-en-vedette">Séries En Vedette</li></a>
+                    <a href="#" class="link"><li>Déconnexion</li></a>
+                    <ul class="media-sociaux-nav">
+                        <a href="#" class="media-social"><li class="fa fa-facebook-square" aria-hidden="true"></li></a>
+                        <a href="#" class="media-social"><li class="fa fa-twitter-square" aria-hidden="true"></li></a>
+                    </ul>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <header id="Accueil" class="hero">
+        <div class="hero-header">
+            <h1 class="hero-title">GUIDE TV</h1>
+            <h2 class="slogan">Votre dépendance finalement encouragée</h2>
+            <img class="logo" src="img/Fichier%201.png" alt="Le logo de guide TV">
+        </div>
+        <div class="profil">
+            <img src="img/profil-500-500.jpg" alt="l'image de profil" class="img-profil">
+            <div class="info-profil">
+                <h2 class="profil-nom">Bill Vincianteh Hundia</h2>
+                <h3 class="profil-abonnes-total"><span class="profil-abonnes">1609</span> abonnés</h3>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="Abonnements" class="abonnements container-fluid">
+          <h2 class="titre-abonnements">Abonnements</h2>
+           <form class="searchBar">
+               <input type="search" placeholder="Recherche" class="searchInput"><button  class="searchSubmit fa fa-search"></button>
+           </form>
+            <ul class="series row">
+                <li class="series-item col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4">
+                    <article class="serie">
+                        <div class="gauche">
+                            <img src="img/series/affair, the/affair.jpg" alt="" class="serie-affiche">
+                        </div>
+                        <div class="droite">
+                            <div class="serie-info">
+                                <h3 class="serie-titre">The affair</h3>
+                                <div class="serie-episodes">
+                                    <h4><span class="serie-dispo">32</span> épisodes disponibles</h4>
+                                    <h4><span  class="serie-vu">14</span> épisodes visionnés</h4>
+                                </div>
+                            </div>
+                        </div>
+                            <a href="#"><div class="btn">Se désabonner</div></a>
+                    </article>
+                </li>
+            </ul>
+        </section>
+        <section id="En-vedette" class="en-vedette container-fluid">
+            <h2>Séries en Vedette</h2>
+            <ul class="series-en-vedette row">
+                <li class="serie-en-vedette col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0">
+                    <img class="image-serie-vedette" srcset="img/_sev/fargo-assets/fargo-975.jpg 768w, img/_sev/fargo-assets/fargo-1350.jpg 992w, img/_sev/fargo-assets/fargo-1950.jpg 1200w" src="img/_sev/fargo-assets/fargo-479.jpg" alt="L'affiche de la série Fargo">
+                    <h3 class="serie-titre">Fargo</h3>
+                    <p class="description">Les Gerhardt reçoivent une proposition inattendue, et deux meurtriers surprenants essaient de nettoyer les dégâts qu'ils ont faits.</p>
+                    <h4 class="serie-date">14 janvier 2018</h4>
+                </li>
+                <li class="serie-en-vedette col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0">
+                    <img class="image-serie-vedette" srcset="img/_sev/homeland-assets/homeland-975.jpg 768w, img/_sev/homeland-assets/homeland-1350.jpg 992w, img/_sev/homeland-assets/homeland-1950.jpg 1200w" src="img/_sev/homeland-assets/homeland-479.jpg" alt="L'affiche de la série Homeland">
+                    <h3 class="serie-titre">Homeland</h3>
+                    <p class="description">Saul ne fait plus partie de la CIA et Carrie se voit confier un poste à l’étranger, ce qui l'amènera à circuler dans des régions sensibles du globe.</p>
+                    <h4 class="serie-date">5 janvier 2018</h4>
+                </li>
+                <li class="serie-en-vedette col-sm-10 col-sm-offset-1 col-md-4 col-md-offset-0">
+                    <img class="image-serie-vedette" srcset="img/_sev/the-americans-assets/the-americans-975.jpg 768w, img/_sev/the-americans-assets/the-americans-1350.jpg 992w, img/_sev/the-americans-assets/the-americans-1950.jpg 1200w" src="img/_sev/the-americans-assets/the-americans-479.jpg" alt="L'affiche de la série The Americans">
+                    <h3 class="serie-titre">The Americans</h3>
+                    <p class="description">Le couple Jennings se dispute encore sur l'avenir de leur fille : la laisser vivre sa vie ou accepter que le KGB ne la forme à son tour à être un agent infiltré. Elizabeth perd une liste de noms, trahie par son contact, et Philip tente de rattraper le coup. Stan essaie de sauver son mariage.</p>
+                    <h4 class="serie-date">9 janvier 2018</h4>
+                </li>
+            </ul>
+        </section>
+        
+    </main>
+    <footer>
+        <div class="copyright">2017 - Techniques d'intégration multimédia. Réalisé à des fins pédagogiques dans le cadre du cours d'Intégration Web II</div>
+    </footer>
+    
+    
+    <!--jquery-->
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+      <script src="vendors/Contenu.min.js"></script>
+    <script src="vendors/bootstrap-sass-3.3.7/assets/javascripts/bootstrap.min.js"></script>
+    <script src="vendors/jquery.smooth-scroll.js"></script>
+    <script src="vendors/slick/slick.min.js"></script>
+    <script src="vendors/jquery.waypoints.min.js"></script>
+    <script>
+        $(function(){
+                
+//                    console.log('HELLO WORLD!')
+                
+                $('.burger').click(function(e){
+                    e.preventDefault();
+                    $('.nav-mask').toggleClass('is-collapsed');
+                }); 
+                
+                $('.serie-titre').dblclick(function(e){
+                    $(this).parents('.serie').toggleClass('is-favori');
+//                    console.log('FAVVVVOOOORRRIIITTT!');
+                });
+            
+                $('.link').smoothScroll({
+                    speed:1000
+                });
+            
+                var heroHeight;
+            
+                function detectSticky(){
+                    if($(document).scrollTop() >= heroHeight){
+                        $('.profil').addClass('is-sticky');
+                    }else{
+                        $('.profil').removeClass('is-sticky');
+                    }
+                    
+                    if($(document).scrollTop() >= heroHeight){
+                        $('.nav-wrapper').addClass('is-sticky');
+                    }else{
+                        $('.nav-wrapper').removeClass('is-sticky');
+                    }
+                }
+            
+                $('.abonnements').waypoint(function(direction){
+                    console.log(direction)
+                    $('.link-abonnements.actif').removeClass('actif');
+                    $('.link-accueil.actif').removeClass('actif');
+                    if(direction=='up'){
+                        $('.link-accueil').addClass('actif'); 
+                    }else{
+                        $('.link-abonnements').addClass('actif'); 
+                    }
+                },{
+                    offset:'60%'
+                });
+                
+                $('.en-vedette').waypoint(function(direction){
+                    console.log(direction)
+                    $('.link-en-vedette.actif').removeClass('actif');
+                    $('.link-abonnements.actif').removeClass('actif');
+                    if(direction=='up'){
+                        $('.link-abonnements').addClass('actif'); 
+                    }else{
+                        $('.link-en-vedette').addClass('actif'); 
+                    }
+                },{
+                    offset:'60%'
+                });
+            
+            function makeItSlick(){
+                $('.series-en-vedette').slick({
+                    dots: true,
+                    slidesToShow: 1,
+                    autoplay:true,
+                    autoplaySpeed:10000,
+                    responsive: [
+                        {
+                        breakpoint: 768,
+                        settings: "unslick"
+                        }
+                    ]
+                });
+            }
+            
+            function init(){
+                    heroHeight = $('.hero').outerHeight();
+                    detectSticky();
+                    
+                    var $windowWidth = $(window).width();
+                    if ($windowWidth > 768) {
+                        makeItSlick();   
+                    }
+            }
+            
+            $(document).scroll(detectSticky);
+            $(window).resize(init);
+            makeItSlick();
+            init();
+            
+            });
+    </script>
+</body>
+</html>

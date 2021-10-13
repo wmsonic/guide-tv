@@ -1,0 +1,13 @@
+//On applique ici un style aux "composantes majeures" du site (header, footer, main...) 
+//Il faut aussi réfléchir aux styles communs de ces composantes et leur ajouter un classe commune si nécessaire (.inner, .wrapper...)
+
+main{
+    margin-top: 3em;
+    @include mq(small){
+        margin-top: 5em;
+    }
+}
+
+footer{
+    margin-top: 5rem;
+}

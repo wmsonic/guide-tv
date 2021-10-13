@@ -1,0 +1,20 @@
+//On déclare ici les variables en les séparant en catégories (couleurs, polices, tailles, media queries...)
+
+//tailles
+$baseSize:16;
+
+//MediaQueries
+//Corespondes au même valeurs que bootstrap
+$breakpoints:(
+    'x-small':(480/$baseSize)*1em,
+    'small':(768/$baseSize)*1em,
+    'medium':(992/$baseSize)*1em,
+    'large':(1200/$baseSize)*1em
+);
+
+$myDarkGrey: #202529;
+$myGrey: #32383d;
+$myLightGrey: #4c555c;
+$almostWhite: #f3f5f8;
+$mainOrange: #ff8c12;
+$borderRadiusSerie: 5px;
